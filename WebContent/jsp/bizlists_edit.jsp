@@ -27,7 +27,7 @@ code {
 <body>
 <c:if test="${!empty bizlist}"  >
 	<form id="J_Form" class="form-horizontal span24" name="form"
-		method="post" action="bizlist_update?bid=${Bizlist.bid}" namespace="/">
+		method="post" action="bizlist_update?bid=${bizlist.bid}" namespace="/">
 		<div class="container">
 			<div class="row">
 

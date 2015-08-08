@@ -92,11 +92,17 @@ public class BizlistServiceImpl implements IBizlistService {
 	}
 
 	@Override
-	public boolean update(int id) {
-		// TODO Auto-generated method stub
-		Bizlist bizlist = this.bizlistDao.selectById(id);		
-		return this.bizlistDao.update(bizlist) == 0 ? true : false;
+	public boolean update(Bizlist biz) {
+		// TODO Auto-generated method stub		
+		return this.bizlistDao.update(biz) == 0 ? true : false;
 	}
+
+//	@Override
+//	public boolean update(int id) {
+//		// TODO Auto-generated method stub
+//		Bizlist bizlist = this.bizlistDao.selectById(id);		
+//		return this.bizlistDao.update(bizlist) == 0 ? true : false;
+//	}
 
 
 

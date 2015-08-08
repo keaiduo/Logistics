@@ -13,6 +13,6 @@ public interface IBizlistService {
 	public abstract List<Bizlist> search(String str1,String str2,String str3);
 	public abstract boolean del(final int id);
 	public abstract boolean edit(final int id);
-	public abstract boolean update(final int id);
+	public abstract boolean update(final Bizlist biz);
 
 }

@@ -1,10 +1,10 @@
 package com.logistics.action;
 
+import java.util.Date;
 import java.util.List;
 
 import com.logistics.domain.Bizlist;
 import com.logistics.service.IBizlistService;
-import com.logistics.vo.CommonUtil;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -42,8 +42,6 @@ public class BizlistAction extends BaseAction implements ModelDriven<Bizlist> {
 		List<Bizlist> lstBizlists = this.bizlistService.findAll();
 		System.out.println("lstBizlists>>=="+lstBizlists.toString());
 		this.getRequest().setAttribute("lstBizlists", lstBizlists);
-//		CommonUtil.toBeJson(lstBizlists, lstBizlists.size());
-//		System.out.println("2222222222222222222");
 		return Action.SUCCESS;
 		
 	}
@@ -87,9 +85,10 @@ public class BizlistAction extends BaseAction implements ModelDriven<Bizlist> {
 	
 	public String  bizlist_update() throws Exception
 	{
-		System.out.println("edit method invoke");
+		System.out.println("update method invoke");
 		int bid = Integer.parseInt(this.getRequest().getParameter("bid"));
-		boolean flag = this.bizlistService.update(bid);
+		bizlist.setBid(bid);
+		boolean flag = this.bizlistService.update(bizlist);
 		return flag? Action.SUCCESS : Action.ERROR;
 	}
 	
