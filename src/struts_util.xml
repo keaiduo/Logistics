@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!--项目工具类 -->
+
+	<package name="util" namespace="/" extends="struts-default,struts-global">
+		<!--user信息导出action -->
+		<action name="exportAction" class="exportAction">
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">2048</param>
+				<param name="inputName">excelStream</param>
+			</result>
+		</action>
+	</package>
+</struts>

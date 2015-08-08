@@ -75,6 +75,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+
 	<!--这只Service层 -->
 	<bean id="userService" class="com.logistics.service.impl.UserServiceImpl">
 		<property name="userDao">
@@ -111,6 +112,7 @@
 			<ref bean="trackDao" />
 		</property>
 	</bean>
+
 	<!--设置Action层 -->
 	<bean id="userAction" class="com.logistics.action.UserAction">
 		<property name="userService">
@@ -167,8 +169,23 @@
 		<property name="track">
 			<ref bean="track" />
 		</property>
-		
+
 	</bean>
+	<bean id="exportAction" class="com.logistics.action.DataExportAction">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+		<property name="exportUtil">
+			<ref bean="exportUtil" />
+		</property>
+
+	</bean>
+
+	<!--工具类  -->
+	<bean id="exportUtil" class="com.logistics.util.ExportToExcel">
+	</bean>
+	
+	
 	<!-- 设置domain层 -->
 	<bean id="track" class="com.logistics.domain.Track"></bean>
 	<bean id="company" class="com.logistics.domain.Company"></bean>
