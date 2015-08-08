@@ -62,7 +62,7 @@
               text:'信息查询',
               items:[
                 {id:'operation',text:'公司单号查询',href:'bizlist_findall.action'},
-                {id:'quick',text:'专线单号查询',href:'company_findall.action'},
+                {id:'quick',text:'专线单号查询',href:'transport_findall.action'},
                 {id:'quicks',text:'公司信息展示',href:'jsp/show.jsp'}	
               ]
             },{
