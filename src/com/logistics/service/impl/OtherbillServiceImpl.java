@@ -2,9 +2,7 @@ package com.logistics.service.impl;
 
 import com.logistics.dao.IOtherbillDao;
 import com.logistics.domain.Otherbill;
-import com.logistics.domain.User;
 import com.logistics.service.IOtherbillService;
-import com.logistics.service.IUserService;
 
 public class OtherbillServiceImpl implements IOtherbillService {
 	

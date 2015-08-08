@@ -8,6 +8,11 @@ import com.opensymphony.xwork2.ModelDriven;
 public class TransportAction extends BaseAction implements
 		ModelDriven<Transport> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Transport transport;
 	private ITransportService transportService;
 

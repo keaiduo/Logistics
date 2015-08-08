@@ -7,6 +7,11 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private User user;
 	private IUserService userService;
 	@Override

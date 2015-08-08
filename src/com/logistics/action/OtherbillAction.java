@@ -8,6 +8,11 @@ import com.opensymphony.xwork2.ModelDriven;
 public class OtherbillAction extends BaseAction implements
 		ModelDriven<Otherbill> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Otherbill otherbill;
 	private IOtherbillService otherbillService;
 	

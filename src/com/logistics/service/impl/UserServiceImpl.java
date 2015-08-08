@@ -1,6 +1,5 @@
 package com.logistics.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.logistics.dao.IUserDao;

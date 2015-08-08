@@ -9,6 +9,11 @@ import java.util.Date;
  */
 public class Otherbill implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int oid;
 	private Date odate;
 	private String ocompany;

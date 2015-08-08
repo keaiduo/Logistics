@@ -3,7 +3,6 @@ package com.logistics.service.impl;
 import java.util.List;
 
 import com.logistics.dao.IBizlistDao;
-import com.logistics.dao.base.IGenericDao;
 import com.logistics.domain.Bizlist;
 import com.logistics.service.IBizlistService;
 

@@ -8,6 +8,11 @@ import com.opensymphony.xwork2.ModelDriven;
 public class DailybillAction extends BaseAction implements
 		ModelDriven<Dailybill> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Dailybill dailybill;
 	private IDailybillService dailybillService;	
 

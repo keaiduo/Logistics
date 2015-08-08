@@ -7,6 +7,11 @@ package com.logistics.domain;
  */
 public class User implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int uid;
 	private String uname;
 	private String upassword;

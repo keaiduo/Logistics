@@ -7,6 +7,11 @@ package com.logistics.domain;
  */
 public class Transport implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int tid;
 	private String tno;
 	private String tname;

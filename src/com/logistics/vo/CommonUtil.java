@@ -1,17 +1,13 @@
 package com.logistics.vo;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts2.ServletActionContext;
-
-
-
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
-import net.sf.json.util.PropertyFilter;
+
+import org.apache.struts2.ServletActionContext;
 
 public class CommonUtil {
 
@@ -23,17 +19,19 @@ public class CommonUtil {
 	 */
 	public static void toBeJson(List list, int total) throws Exception {
 		JsonConfig myJsonConfig = new JsonConfig();
-//		myJsonConfig.setJsonPropertyFilter(new PropertyFilter() {
-//
-//			@Override
-//			public boolean apply(Object source, String name, Object value) {
-//				// TODO Auto-generated method stub
-//				if (name.equals("users"))
-//					return true;
-//				else
-//					return false;
-//			}
-//		});
+
+		/*myJsonConfig.setJsonPropertyFilter(new PropertyFilter() {
+
+			@Override
+			public boolean apply(Object source, String name, Object value) {
+				// TODO Auto-generated method stub
+				if (name.equals("users"))
+					return true;
+				else
+					return false;
+			}
+		});*/
+
 		HttpServletResponse myResponse = ServletActionContext.getResponse();
 		JSONObject myJsonObject = new JSONObject();
 		myJsonObject.accumulate("total", total, myJsonConfig);
@@ -56,7 +54,4 @@ public class CommonUtil {
 		myResponse.setCharacterEncoding("UTF-8");
 		myResponse.getWriter().write(myJsonObject.toString());
 	}
-	
-	
-	
 }

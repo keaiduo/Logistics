@@ -9,6 +9,11 @@ import java.util.Date;
  */
 public class Bizlist implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int bid;
 	private String orderno;
 	private String clientno;

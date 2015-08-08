@@ -9,6 +9,11 @@ import java.util.Date;
  */
 public class Track implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int gid;
 	private String glocation;
 	private Date gdate;

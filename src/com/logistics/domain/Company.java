@@ -7,6 +7,11 @@ package com.logistics.domain;
  */
 public class Company implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int cid;
 	private String cname;
 

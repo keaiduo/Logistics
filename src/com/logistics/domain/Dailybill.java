@@ -9,6 +9,11 @@ import java.util.Date;
  */
 public class Dailybill implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int did;
 	private Date ddate;
 	private String dszqk;

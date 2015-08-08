@@ -9,6 +9,11 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class CompanyAction extends BaseAction implements ModelDriven<Company> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Company company;
 	private ICompanyService companyService;
 	
