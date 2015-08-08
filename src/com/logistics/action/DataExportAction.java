@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DataExportAction extends ActionSupport {
 
 	/**
-	 * Êı¾İµ¼³öaction
+	 * æ•°æ®å¯¼å‡ºaction
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -29,15 +29,15 @@ public class DataExportAction extends ActionSupport {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		List<User> myUserList = userService.selectAllUser();
-		String[] titles = { "ÓÃ»§±êÊ¶", "ÓÃ»§Ãû", "ÃÜÂë", "rid" };
+		String[] titles = { "ç”¨æˆ·æ ‡è¯†", "ç”¨æˆ·å", "å¯†ç ", "rid" };
 
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		exportUtil.createExcel(os, myUserList, titles);
 		byte[] fileContent = os.toByteArray();
 		ByteArrayInputStream is = new ByteArrayInputStream(fileContent);
-		excelStream = is; // ÎÄ¼şÁ÷
-		fileName = "ÓÃ»§ĞÅÏ¢µ¼³ö.xls";
-		//ÕâÀïĞèÒª×¢ÒâĞèÒª½øĞĞ×ªÂë£¬·ñÔò»áµ¼ÖÂÖĞÎÄÎÄ¼şÃûÎŞ·¨ÏÔÊ¾
+		excelStream = is; // æ–‡ä»¶æµ
+		fileName = "ç”¨æˆ·ä¿¡æ¯å¯¼å‡º.xls";
+		//è¿™é‡Œéœ€è¦æ³¨æ„éœ€è¦è¿›è¡Œè½¬ç ï¼Œå¦åˆ™ä¼šå¯¼è‡´ä¸­æ–‡æ–‡ä»¶åæ— æ³•æ˜¾ç¤º
 		fileName=new String(fileName.getBytes(), "ISO8859-1");           
 		return "excel";
 	}

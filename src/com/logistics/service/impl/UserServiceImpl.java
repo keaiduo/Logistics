@@ -1,5 +1,8 @@
 package com.logistics.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.logistics.dao.IUserDao;
 import com.logistics.domain.User;
 import com.logistics.service.IUserService;
@@ -22,6 +25,13 @@ public class UserServiceImpl implements IUserService{
 	public boolean add(User user) {
 		// TODO Auto-generated method stub
 		return this.userDao.insert(user) != null ? true :false;
+	}
+
+
+	@Override
+	public List<User> selectAllUser() {
+		// TODO Auto-generated method stub
+		return this.userDao.selectAll();
 	}
 
 	
