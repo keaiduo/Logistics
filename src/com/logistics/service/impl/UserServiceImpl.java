@@ -33,6 +33,13 @@ public class UserServiceImpl implements IUserService{
 		return this.userDao.selectAll();
 	}
 
+
+	@Override
+	public int userLogin(User loginUser) {
+		// TODO Auto-generated method stub
+		return userDao.userLogin(loginUser);
+	}
+
 	
 
 }

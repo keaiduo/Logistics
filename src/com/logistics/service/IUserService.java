@@ -7,15 +7,22 @@ import com.logistics.domain.User;
 public interface IUserService {
 	
 	/**
-	 * å¢åŠ ç”¨æˆ·
-	 * @param user æ–°å¢åŠ çš„ç”¨æˆ·ä¿¡æ¯
-	 * @return trueå¢åŠ æˆåŠŸï¼Œå¦åˆ™å¤±è´¥
+	 * Ôö¼ÓÓÃ»§
+	 * @param user ĞÂÔö¼ÓµÄÓÃ»§ĞÅÏ¢
+	 * @return trueÔö¼Ó³É¹¦£¬·ñÔòÊ§°Ü
 	 */
 	public abstract boolean add(final User user);
 
 	/**
-	 * æŸ¥è¯¢æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯
-	 * @return æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯
+	 * ²éÑ¯ËùÓĞÓÃ»§ĞÅÏ¢
+	 * @return ËùÓĞÓÃ»§ĞÅÏ¢
 	 */
 	public List<User> selectAllUser();
+	
+	
+	/**
+	 * ÓÃ»§µÇÂ½ 
+	 * @return  0µÇÂ½Ê§°Ü,ÆäËû·µ»ØÓÃ»§¼¶±ğ
+	 */
+	public int userLogin(User loginUser);
 }

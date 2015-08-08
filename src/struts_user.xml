@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="user" namespace="/" extends="struts-default,struts-global">
+		<!--user登录action -->
+		<action name="userLoginAction" class="userLoginAction">
+			<result name="success">/main.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<!--user注销action -->
+		<action name="userLogoutAction" class="userLogoutAction">
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+
+</struts>

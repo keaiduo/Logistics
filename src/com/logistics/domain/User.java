@@ -65,4 +65,10 @@ public class User implements java.io.Serializable {
 		this.rid = rid;
 	}
 
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", uname=" + uname + ", upassword="
+				+ upassword + ", rid=" + rid + "]";
+	}
+
 }

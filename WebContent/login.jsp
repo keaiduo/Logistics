@@ -18,14 +18,12 @@
 </head>
 <body>
 	<div class="lg">
-		<form action="#" method="POST">
+		<form action="userLoginAction" method="POST">
 			<div class="lg_top"></div>
 			<div class="lg_main">
 				<div class="lg_m_1">
-
-					<input name="username" placeholder="用户名" value="" class="ur" />
-					<input name="password" placeholder="密码" type="password" value="" class="pw" />
-
+					<input name="uname" placeholder="用户名" value="" class="ur" />
+					<input name="upassword" placeholder="密码" type="password" value="" class="pw" />
 				</div>
 			</div>
 			<div class="lg_foot">

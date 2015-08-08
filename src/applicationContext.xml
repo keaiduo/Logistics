@@ -39,6 +39,7 @@
 			<ref bean="dataSource" />
 		</property>
 	</bean>
+
 	<!--设置dao层 -->
 	<bean id="userDao" class="com.logistics.dao.impl.UserDaoImpl">
 		<property name="sessionFactory">
@@ -114,6 +115,20 @@
 	</bean>
 
 	<!--设置Action层 -->
+
+	<bean id="userLoginAction" class="com.logistics.action.UserLoginAction">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+		<property name="user">
+			<ref bean="user" />
+		</property>
+	</bean>
+
+	<bean id="userLogoutAction" class="com.logistics.action.UserLogoutAction">
+	</bean>
+
+
 	<bean id="userAction" class="com.logistics.action.UserAction">
 		<property name="userService">
 			<ref bean="userService" />
@@ -181,11 +196,11 @@
 
 	</bean>
 
-	<!--工具类  -->
+	<!--工具类 -->
 	<bean id="exportUtil" class="com.logistics.util.ExportToExcel">
 	</bean>
-	
-	
+
+
 	<!-- 设置domain层 -->
 	<bean id="track" class="com.logistics.domain.Track"></bean>
 	<bean id="company" class="com.logistics.domain.Company"></bean>
