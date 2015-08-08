@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="transport" namespace="/" extends="struts-default,struts-global">
+
+		<action name="transport_add" class="transportAction" method="add">
+			<result name="success">/jsp/success.jsp</result>
+		</action>
+		
+		<action name="transport_findall" class="transportAction" method="findAll">
+			<result name="success">/jsp/transport_show.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+
+		<action name="transport_search" class="transportAction" method="search">
+			<result name="success">/jsp/transport_show.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+	
+		<action name="transport_delete" class="transportAction" method="transport_delete">
+			<result name="success" type="redirectAction">transport_findall</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+		<action name="transport_edit" class="transportAction" method="transport_edit">
+			<result name="success">/jsp/transport_edit.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+		<action name="transport_update" class="transportAction" method="transport_update">
+			<result name="success" type="redirectAction">transport_findall</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+	
+
+	</package>
+
+</struts>

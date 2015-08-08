@@ -22,8 +22,8 @@
         </a>
       </div>
 
-   <div class="dl-log">欢迎您，<span class="dl-log-user">来到昌顺物流管理系统</span>
-	<!--<a href="###" title="退出系统" class="dl-log-quit">[退出]</a> -->
+   <div class="dl-log">欢迎您，<span class="dl-log-user"> <%=session.getAttribute("loginUserName")%> </span>
+	<a href="userLogoutAction" title="退出系统" class="dl-log-quit">[退出]</a> 
     </div>
   </div>
    <div class="content">
@@ -53,7 +53,7 @@
           menu:[{
               text:'信息录入',
               items:[
-                     <!--获取客户公司名称，展示到company.jsp中供录入使用        -->
+                     <!--获取客户公司名称,展示到company.jsp中供录入使用 -->
                 {id:'code',text:'公司单号信息录入',href:'company_findall.action',closeable : false},
                 {id:'main-menu',text:'专线单号信息录入',href:'jsp/transport.jsp'}
                
@@ -62,7 +62,7 @@
               text:'信息查询',
               items:[
                 {id:'operation',text:'公司单号查询',href:'bizlist_findall.action'},
-                {id:'quick',text:'专线单号查询',href:'transport_findall.action'},
+                {id:'quick',text:'专线单号查询',href:'company_findall.action'},
                 {id:'quicks',text:'公司信息展示',href:'jsp/show.jsp'}	
               ]
             },{

@@ -38,7 +38,7 @@
 		</action>
 
 		<action name="bizlist_update" class="bizlistAction" method="bizlist_update">
-			<result name="success">/jsp/success.jsp</result>
+			<result name="success" type="redirectAction">bizlist_findall</result>
 			<result name="error">/form/fail.jsp</result>
 		</action>
 	

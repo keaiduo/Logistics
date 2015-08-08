@@ -51,7 +51,7 @@ code {
 						</div>
 					</div>
 					<div class="control-group span8">
-						<label class="control-label">联系人</label>
+						<label class="control-label">联系人:</label>
 						<div id="range" class="controls bui-form-group"	>	
 							<input id="tlxt" name="tlxt" class="input-normal control-text" type="text">
 						</div>
@@ -131,7 +131,7 @@ code {
 						</div>
 					</div>
 					<div class="control-group span8">
-						<label class="control-label">提货成本</label>
+						<label class="control-label">提货成本:</label>
 						<div class="controls">
 							<input id="tthcb" name="tthcb" type="text"
 								class="input-normal control-text"  data-rules="{number:true}">
