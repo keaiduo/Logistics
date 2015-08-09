@@ -19,7 +19,7 @@
 		</global-results>
 
 	</package>
-
+	<include file="struts_use.xml"></include>
 	<include file="struts_user.xml"></include>
 	<include file="struts_user2.xml"></include>
 	<include file="struts_util.xml"></include>
