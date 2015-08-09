@@ -26,5 +26,6 @@
 	<include file="struts_company.xml"></include>
 	<include file="struts_transport.xml"></include>
 	<include file="struts_user2.xml"></include>
+	<include file="struts_test.xml"></include>
 
 </struts>
