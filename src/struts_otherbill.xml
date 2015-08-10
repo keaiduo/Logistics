@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="otherbill" namespace="/" extends="struts-default,struts-global">
+
+		<action name="otherbill_add" class="otherbillAction" method="otherbill_add">
+			<result name="success">/jsp/success.jsp</result>
+		</action>
+		
+		<action name="otherbill_findall" class="otherbillAction" method="otherbill_findAll">
+			<result name="success">/jsp/otherbill_show.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+
+		<action name="otherbill_search" class="otherbillAction" method="otherbill_search">
+			<result name="success">/jsp/otherbill_show.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+	
+		<action name="otherbill_delete" class="otherbillAction" method="otherbill_delete">
+			<result name="success" type="redirectAction">otherbill_findall</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+		<action name="otherbill_edit" class="otherbillAction" method="otherbill_edit">
+			<result name="success">/jsp/otherbill_edit.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+		<action name="otherbill_update" class="otherbillAction" method="otherbill_update">
+			<result name="success" type="redirectAction">otherbill_findall</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+	
+
+	</package>
+
+</struts>
