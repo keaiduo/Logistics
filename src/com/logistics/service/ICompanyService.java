@@ -7,5 +7,6 @@ import com.logistics.domain.Company;
 public interface ICompanyService {
 	
 	public abstract List<Company> findAll();
+	public abstract boolean add(final Company company);
 
 }

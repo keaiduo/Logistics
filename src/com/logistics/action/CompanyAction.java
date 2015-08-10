@@ -38,5 +38,11 @@ public class CompanyAction extends BaseAction implements ModelDriven<Company> {
 		// TODO Auto-generated method stub
 		return this.company;
 	}
+	
+	public String company_add() throws Exception{
+		boolean flag = this.companyService.add(company);
+		return flag ? Action.SUCCESS : Action.ERROR;		
+	}
+
 
 }

@@ -23,5 +23,13 @@ public class CompanyServiceImpl implements ICompanyService {
 		// TODO Auto-generated method stub
 		return this.companyDao.selectAll();
 	}
+	
+	@Override
+	public boolean add(Company company) {
+		// TODO Auto-generated method stub
+		return this.companyDao.insert(company) != null ? true : false;
+	}
+
+
 
 }
