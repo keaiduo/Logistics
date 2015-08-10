@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="dailybill" namespace="/" extends="struts-default,struts-global">
+
+		<action name="dailybill_add" class="dailybillAction" method="dailybill_add">
+			<result name="success">/jsp/success.jsp</result>
+		</action>
+		
+		<action name="dailybill_findall" class="dailybillAction" method="dailybill_findAll">
+			<result name="success">/jsp/dailybill_show.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+
+		<action name="dailybill_search" class="dailybillAction" method="dailybill_search">
+			<result name="success">/jsp/dailybill_show.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+	
+		<action name="dailybill_delete" class="dailybillAction" method="dailybill_delete">
+			<result name="success" type="redirectAction">dailybill_findall</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+		<action name="dailybill_edit" class="dailybillAction" method="dailybill_edit">
+			<result name="success">/jsp/dailybill_edit.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+
+		<action name="dailybill_update" class="dailybillAction" method="dailybill_update">
+			<result name="success" type="redirectAction">dailybill_findall</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+	
+
+	</package>
+
+</struts>

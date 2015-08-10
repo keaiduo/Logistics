@@ -14,22 +14,6 @@
 <link href="assets/css/prettify.css" rel="stylesheet" type="text/css" />
 <link href="assets/css/bs3/dpl.css" rel="stylesheet" type="text/css" />
 <link href="assets/css/bs3//bui.css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxcore.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxdata.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxbuttons.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxscrollbar.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxlistbox.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxdropdownlist.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxdatatable.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxpanel.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxradiobutton.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxinput.js"></script>
-<script type="text/javascript" src="js/jqwidgets/jqxnotification.js"></script>
-<script type="text/javascript" src="js/generatedata.js"></script>
-<script type="text/javascript" src="js/demos.js"></script>
-
-
 <link href="css/bs3/dpl.css" rel="stylesheet">
 <link href="css/bs3/bui.css" rel="stylesheet">
 <style type="text/css">
@@ -143,52 +127,6 @@ code {
 		}
 	}
 	</script>
-	<!--  
-	<script type="text/javascript">
-            $("#myEditButton").bind('click',function(){
-                var selection = $("#dataTable").jqxDataTable('getSelection');
-                if(selection.length==0)
-                {
-                    alert("请先选择需要操作的行!");
-                }else{
-                   console.log(selection[0]);
-                   window.location.href='admin/showAdminUserInfo?userName='+selection[0]['username'];
-                }
-            });
-            $("#myDeleteButton").bind('click',function(){
-                var selection = $("#dataTable").jqxDataTable('getSelection');
-                if(selection.length==0)
-                {
-                    alert("请先选择需要操作的行!");
-                }else{
-                   var choice=confirm("您确定要删除此业务员吗?");
-                   if(choice==true)
-                   {
-                  /*   window.location.href='deleteAdminUser?userName='+selection[0]['username'];*/
-                     $.ajax({
-                        url:"admin/deleteAdminUser",
-                        data:{
-                            userName:selection[0]['username']
-                        },
-                        dataType:'json',
-                        success:function(data){
-                            if(data.result=="success"){
-                                alert("删除成功")
-                                window.location.href='admin/adminUserList';
-                            }
-                            else{
-                                alert("删除失败"); 
-                            }
-                        },
-                        error:function(){
-                            alert("加载失败！");
-                        }
-                     });
-                   }
-                }
-            });
-        });
-    </script>    
-    -->
+	
 <body>
 </html>

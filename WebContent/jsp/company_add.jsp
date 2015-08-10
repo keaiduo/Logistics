@@ -7,19 +7,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/page-min.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/prettify.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bs3/dpl.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bs3//bui.css" rel="stylesheet">
+<link href="../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/page-min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/prettify.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/bs3/dpl.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/bs3//bui.css" rel="stylesheet">
 
 
 <link href="css/bs3/dpl.css" rel="stylesheet">
 <link href="css/bs3/bui.css" rel="stylesheet">
-<script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="assets/js/config-min.js"></script>
-<script type="text/javascript" src="assets/js/config-min.js"></script>
+<script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../assets/js/config-min.js"></script>
+<script type="text/javascript" src="../assets/js/config-min.js"></script>
 <style type="text/css">
 code {
 	padding: 0px 4px;
@@ -40,8 +40,10 @@ code {
 						<input id="cname" name="cname" type="text"
 							class="input-normal control-text" />
 					</div>
-				</div>
-				<div class="row form-actions actions-bar">
+				</div>				
+			</div>
+			<div class="row">
+			<div class="row form-actions actions-bar">
 					<div class="span13 offset3 ">
 						<button type="submit" class="button button-primary">添加</button>
 						<button type="reset" class="button">重置</button>

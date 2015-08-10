@@ -8,13 +8,12 @@
 <head>
 <title>搜索表单</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/page-min.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/prettify.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bs3/dpl.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bs3//bui.css" rel="stylesheet">
-
+<link href="../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/page-min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/prettify.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/bs3/dpl.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/bs3/bui.css" rel="stylesheet">
 
 <link href="css/bs3/dpl.css" rel="stylesheet">
 <link href="css/bs3/bui.css" rel="stylesheet">
@@ -29,30 +28,30 @@ code {
 </head>
 <body>
 	<form id="searchForm" class="form-horizontal span24" name="form"
-		method="post" action="transport_search" namespace="/">
+		method="post" action="dailybill_search" namespace="/">
 		<div class="container">
 			<div class="row">
 				<div class="control-group span8">
-					<label class="control-label">专线单号：</label>
+					<label class="control-label">日期：</label>
 					<div class="controls">
-						<input id="tno" name="tno" type="text"
+						<input id="ddate" name="ddate" type="text"
 							class="input-normal control-text" />
 					</div>
 				</div>
 				<div class="control-group span8">
-					<label class="control-label">公司单号：</label>
+					<label class="control-label">单号：</label>
 					<div class="controls">
-						<input id="tgsdh" name="tgsdh" type="text"
+						<input id="dorder" name="dorder" type="text"
 							class="input-normal control-text" />
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="control-group span8">
-					<label class="control-label">提货车号：</label>
+					<label class="control-label">经手人：</label>
 					<div id="range" class="controls bui-form-group"
 						data-rules="{dateRange:true}">
-						<input id="tthch" name="tthch"  type="text">
+						<input id="dbroker" name="dbroker"  type="text">
 					</div>
 				</div>
 				<div class="span3 offset2">
@@ -78,44 +77,34 @@ code {
 	<div class="demo-content">
 		<table cellspacing="0" class="table table-bordered">
 			<tr>
-				<td class="controls">专线单号</td>
-				<td>专线名称</td>
-				<td>专线地址</td>
-				<td>联系人</td>
-				<td>联系电话</td>
-				<td>查货电话</td>
-				<td>单价</td>
-				<td>专线费</td>
-				<td>送货费</td>
-				<td>提货费</td>
-				<td>提货车号</td>
-				<td>提货人</td>
-				<td>司机电话</td>
-				<td>提货成本</td>
-				<td>公司单号</td>
+				<td class="controls">日期</td>
+				<td>收支情况</td>
+				<td>付款单位</td>
+				<td>单号</td>
+				<td>事由</td>
+				<td>金额</td>
+				<td>油卡</td>
+				<td>付款方式</td>
+				<td>经手人</td>
+				<td>备注</td>
 				<td>操作</td>
 
 			</tr>
-			<c:forEach items="${requestScope.lstTransports }" var="Transport"
+			<c:forEach items="${requestScope.lstDailybills }" var="Dailybill"
 				varStatus="loop">
 				<tr>
-					<td>${Transport.tno }</td>
-					<td>${Transport.tname}</td>
-					<td>${Transport.taddr }</td>
-					<td>${Transport.tlxt}</td>
-					<td>${Transport.tlxdh}</td>
-					<td>${Transport.tchdh }</td>
-					<td>${Transport.tprice }</td>
-					<td>${Transport.tzxf}</td>
-					<td>${Transport.tshf }</td>
-					<td>${Transport.tthf }</td>
-					<td>${Transport.tthch }</td>
-					<td>${Transport.tthr }</td>
-					<td>${Transport.tsjdh }</td>
-					<td>${Transport.tthcb }</td>
-					<td>${Transport.tgsdh }</td>
-					<td><a href="transport_edit.action?tid=${Transport.tid}">编辑</a>
-						<a href="transport_delete.action?tid=${Transport.tid}" onclick="return delcfm()">删除</a>
+					<td>${Dailybill.ddate }</td>
+					<td>${Dailybill.dszqk}</td>
+					<td>${Dailybill.dfkzw }</td>
+					<td>${Dailybill.dorder}</td>
+					<td>${Dailybill.dreason}</td>
+					<td>${Dailybill.damount }</td>
+					<td>${Dailybill.dcard }</td>
+					<td>${Dailybill.dpayment}</td>
+					<td>${Dailybill.dbroker }</td>
+					<td>${Dailybill.dremarks }</td>
+					<td><a href="dailybill_edit.action?did=${Dailybill.did}">编辑</a>
+						<a href="dailybill_delete.action?did=${Dailybill.did}" onclick="return delcfm()">删除</a>
 					</td>
 
 				</tr>
