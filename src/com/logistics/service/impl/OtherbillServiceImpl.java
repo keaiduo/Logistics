@@ -90,6 +90,30 @@ public class OtherbillServiceImpl implements IOtherbillService {
 		return this.otherbillDao.update(otherbill) == 0 ? true : false;
 	}
 
+	@Override
+	public List<Otherbill> searchByDate(String str1, String str2) {
+		// TODO Auto-generated method stub
+		String hql= "select * from otherbill ";
+		boolean judge = false;
+		if(str1 != null && !str1.trim().equals("")){
+			hql += "where odate >='"+str1+"'";
+			judge = true;
+		}
+		if(str2 != null && !str2.trim().equals("")){
+			if(judge){
+				hql += " and odate <= '"+str2+"'";
+				judge = false;
+			}else{
+				hql += " where odate <= '"+str2+"'";
+			}
+		}
+		List<Otherbill> lists = this.otherbillDao.select(hql);
+		for(Otherbill list : lists){
+			System.out.println(list.toString());
+		}
+		return this.otherbillDao.select(hql);
+	}
+
 
 
 	

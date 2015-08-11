@@ -17,5 +17,21 @@
 				<param name="inputName">excelStream</param>
 			</result>
 		</action>
+		<action name="dailybillExportAction" class="dailybillExportAction">
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">2048</param>
+				<param name="inputName">excelStream</param>
+			</result>
+		</action>
+		<action name="otherbillExportAction" class="otherbillExportAction">
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">2048</param>
+				<param name="inputName">excelStream</param>
+			</result>
+		</action>
 	</package>
 </struts>

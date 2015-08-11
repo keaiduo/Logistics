@@ -1,7 +1,6 @@
 package com.logistics.service;
 
 import java.util.List;
-
 import com.logistics.domain.Otherbill;
 
 public interface IOtherbillService {
@@ -13,5 +12,6 @@ public interface IOtherbillService {
 	public abstract boolean del(final int id);
 	public abstract boolean edit(final int id);
 	public abstract boolean update(final Otherbill otherbill);
+	public abstract List<Otherbill> searchByDate(String str1,String str2);
 
 }

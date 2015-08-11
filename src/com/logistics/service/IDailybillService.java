@@ -12,5 +12,6 @@ public interface IDailybillService {
 	public abstract boolean del(final int id);
 	public abstract boolean edit(final int id);
 	public abstract boolean update(final Dailybill dailybill);
+	public abstract List<Dailybill> searchByDate(String str1,String str2);
 
 }

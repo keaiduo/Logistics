@@ -99,4 +99,29 @@ public class DailybillServiceImpl implements IDailybillService {
 		return this.dailybillDao.selectById(id) != null ? true : false;
 	}
 
+
+	@Override
+	public List<Dailybill> searchByDate(String str1, String str2) {
+		// TODO Auto-generated method stub
+		String hql= "select * from dailybill ";
+		boolean judge = false;
+		if(str1 != null && !str1.trim().equals("")){
+			hql += "where ddate >='"+str1+"'";
+			judge = true;
+		}
+		if(str2 != null && !str2.trim().equals("")){
+			if(judge){
+				hql += " and ddate <= '"+str2+"'";
+				judge = false;
+			}else{
+				hql += " where ddate <= '"+str2+"'";
+			}
+		}
+		List<Dailybill> lists = this.dailybillDao.select(hql);
+		for(Dailybill list : lists){
+			System.out.println(list.toString());
+		}
+		return this.dailybillDao.select(hql);
+	}
+
 }

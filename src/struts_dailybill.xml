@@ -36,6 +36,8 @@
 			<result name="success" type="redirectAction">dailybill_findall</result>
 			<result name="error">/form/fail.jsp</result>
 		</action>
+
+		
 	
 
 	</package>
