@@ -20,6 +20,12 @@
 			<result name="error">/form/fail.jsp</result>
 		</action>
 		
+		<action name="company_select" class="companyAction" method="findAll">
+			<result name="success">/jsp/bizlistexport.jsp</result>
+			<result name="error">/form/fail.jsp</result>
+		</action>
+		
+		
 		<action name="company_add" class="companyAction" method="company_add">
 			<result name="success">/jsp/success.jsp</result>
 			<result name="error">/form/fail.jsp</result>

@@ -27,7 +27,7 @@ code {
 			<div class="row">
 				<div class="row">
 					<div class="control-group span9">
-						<label class="control-label">日期：</label>
+						<label class="control-label">日期区间选择：</label>
 						<div id="range" class="controls bui-form-group"
 							data-rules="{dateRange:true}">
 							<input id="startDate" name="startDate" class="calendar"
@@ -54,8 +54,6 @@ code {
 	<script type="text/javascript">
 		BUI.use('common/page');
 	</script>
-	<!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-	<script type="text/javascript" src="../assets/js/prettify.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			prettyPrint();

@@ -7,13 +7,13 @@ import com.logistics.domain.Bizlist;
 import com.logistics.service.IBizlistService;
 
 public class BizlistServiceImpl implements IBizlistService {
-	
-	private IBizlistDao bizlistDao;	
+
+	private IBizlistDao bizlistDao;
 
 	public IBizlistDao getBizlistDao() {
 		return bizlistDao;
 	}
-	
+
 	public void setBizlistDao(IBizlistDao bizlistDao) {
 		this.bizlistDao = bizlistDao;
 	}
@@ -21,7 +21,7 @@ public class BizlistServiceImpl implements IBizlistService {
 	@Override
 	public boolean add(Bizlist biz) {
 		// TODO Auto-generated method stub
-		return this.bizlistDao.insert(biz) != null ? true :false;
+		return this.bizlistDao.insert(biz) != null ? true : false;
 	}
 
 	@Override
@@ -33,54 +33,54 @@ public class BizlistServiceImpl implements IBizlistService {
 	@Override
 	public List<Bizlist> findOrder() {
 		// TODO Auto-generated method stub
-	//	System.out.println("========================="+this.bizlistDao.selectAll().get(2)); 
-		return  this.bizlistDao.selectAll();
+		// System.out.println("========================="+this.bizlistDao.selectAll().get(2));
+		return this.bizlistDao.selectAll();
 	}
 
 	@Override
 	public List<Bizlist> search(String str1, String str2, String str3) {
-		// TODO Auto-generated method stub		
-			String hql= "select * from bizlist ";
-			boolean judge = false;
-			if (str1 != null && !str1.trim().equals("")) {
-				hql+=" where orderno ='"+str1+"'";			
+		// TODO Auto-generated method stub
+		String hql = "select * from bizlist ";
+		boolean judge = false;
+		if (str1 != null && !str1.trim().equals("")) {
+			hql += " where orderno ='" + str1 + "'";
+			judge = true;
+		}
+		if (str2 != null && !str2.trim().equals("")) {
+			if (judge) {
+				hql += " and clientno ='" + str2 + "'";
+				judge = false;
+			} else {
+				hql += " where clientno ='" + str2 + "'";
 				judge = true;
 			}
-			if (str2 != null && !str2.trim().equals("")) {
-				if (judge) {
-					hql+=" and clientno ='"+str2+"'";
-					judge = false;
-				} else {
-					hql+=" where clientno ='"+str2+"'";
-					judge = true;
-				}
+		}
+		if (str3 != null && !str3.trim().equals("")) {
+			if (judge) {
+				hql += " and startdate ='" + str3 + "'";
+				judge = false;
+			} else {
+				hql += " where startdate ='" + str3 + "'";
+				judge = true;
 			}
-			if (str3 != null && !str3.trim().equals("")) {
-				if (judge) {
-					hql+=" and startdate ='"+str3+"'";
-					judge = false;
-				} else {
-					hql+=" where startdate ='"+str3+"'";
-					judge = true;
-				}
-			}	
-			List<Bizlist> lists = this.bizlistDao.select(hql);
-			for(Bizlist list : lists){
-				System.out.println(list.toString());
-			}
+		}
+		List<Bizlist> lists = this.bizlistDao.select(hql);
+		for (Bizlist list : lists) {
+			System.out.println(list.toString());
+		}
 		return this.bizlistDao.select(hql);
 	}
 
 	@Override
 	public boolean del(int id) {
 		// TODO Auto-generated method stub
-		return this.bizlistDao.delete(id) == 0 ? true : false ;
+		return this.bizlistDao.delete(id) == 0 ? true : false;
 	}
 
 	@Override
 	public boolean edit(int id) {
 		// TODO Auto-generated method stub
-		Bizlist bizlist = this.bizlistDao.selectById(id);		
+		Bizlist bizlist = this.bizlistDao.selectById(id);
 		return bizlist != null ? true : false;
 	}
 
@@ -92,19 +92,46 @@ public class BizlistServiceImpl implements IBizlistService {
 
 	@Override
 	public boolean update(Bizlist biz) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
 		return this.bizlistDao.update(biz) == 0 ? true : false;
 	}
 
-//	@Override
-//	public boolean update(int id) {
-//		// TODO Auto-generated method stub
-//		Bizlist bizlist = this.bizlistDao.selectById(id);		
-//		return this.bizlistDao.update(bizlist) == 0 ? true : false;
-//	}
+	@Override
+	public List<Bizlist> exportby(String str1, String str2, String str3) {
+		// TODO Auto-generated method stub
+		String hql = "select * from bizlist ";
+		boolean judge = false;
+		if (str1 != null && !str1.trim().equals("")) {
+			hql += " where companyname = '" + str1 + "'";
+			judge = true;
+		}
+		boolean judge2 = false;
+		if (str2 != null && !str2.trim().equals("")) {
+			if (judge) {
+				hql += " and startdate >= '" + str2 + "'";
+				judge = false;
+				judge2 = true;
+			} else {
+				hql += " where startdate >= '" + str2 + "'";
+				judge = true;
+				judge2 = true;
+			}
+		}
+		if (str3 != null && !str3.trim().equals("")) {
+			if (judge || judge2) {
+				hql += " and startdate <= '" + str3 + "'";
+				judge = false;
+			} else {
+				hql += " where startdate <= '" + str3 + "'";
+				judge = true;
+			}
+		}
 
-
-
-
+		List<Bizlist> lists = this.bizlistDao.select(hql);
+		for (Bizlist list : lists) {
+			System.out.println(list.toString());
+		}
+		return this.bizlistDao.select(hql);
+	}
 
 }

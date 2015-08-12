@@ -29,6 +29,7 @@ public class Bizlist implements java.io.Serializable {
 	private String receiver;
 	private String telephone;
 	private Double totalfee;
+	private String remarks;
 
 	public Bizlist() {
 	}
@@ -188,7 +189,16 @@ public class Bizlist implements java.io.Serializable {
 				+ ", unit=" + unit + ", startlocation=" + startlocation
 				+ ", endcompany=" + endcompany + ", channel=" + channel
 				+ ", endlocation=" + endlocation + ", receiver=" + receiver
-				+ ", telephone=" + telephone + ", totalfee=" + totalfee + "]";
+				+ ", telephone=" + telephone + ", totalfee=" + totalfee+ ", remarks=" + remarks + "]";
 	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	
 
 }

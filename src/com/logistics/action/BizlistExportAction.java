@@ -18,20 +18,24 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.util.ServletContextAware;
 
-import com.logistics.domain.Otherbill;
-import com.logistics.service.IOtherbillService;
-import com.logistics.util.OtherbillExportToExcel;
+
+
+
+
+import com.logistics.domain.Bizlist;
+import com.logistics.service.IBizlistService;
+import com.logistics.util.BizlistExportToExcel;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class OtherbillExportAction extends ActionSupport implements ServletContextAware,
+public class BizlistExportAction extends ActionSupport implements ServletContextAware,
 ServletRequestAware, SessionAware, ServletResponseAware{
 
 	/**
 	 * 日常数据表导出
 	 */
 	private static final long serialVersionUID = 1L;
-	private IOtherbillService otherbillService;
-	private OtherbillExportToExcel otherbillExportToExcel;
+	private IBizlistService bizlistService;
+	private BizlistExportToExcel bizlistExportToExcel;
 	private String fileName;
 	private InputStream excelStream;
 	
@@ -44,43 +48,41 @@ ServletRequestAware, SessionAware, ServletResponseAware{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("进入otherbillExportAction方法");
-		String str1 = request.getParameter("startDate");
-		String str2 = request.getParameter("endDate");
-		System.out.println("str1"+str1+">>>str2"+str2);
-//		List<Dailybill> dailybillList = dailybillService.findAll();
-		//按照所选日期导出
-		List<Otherbill> otherbillList = otherbillService.searchByDate(str1, str2);
+		System.out.println("进入BizlistExportAction方法");
+		String str1 = request.getParameter("companyname");
+		String str2 = request.getParameter("startDate");
+		String str3 = request.getParameter("endDate");
+		System.out.println("str1"+str1+">>>str2"+str2+">>>str3"+str3);
+		List<Bizlist> bizlist = bizlistService.exportby(str1, str2, str3);
 		//设置title
-		String[] titles = {"序号","日期","公司","业务状况","数量","事由","利润","经手人"};
+		String[] titles = {"序号","客户单号","公司单号","发货日期","件数","数量","单位","始发地","收货单位","渠道","收货地址","收货人","收货人联系方式","运费总额","备注"};
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		otherbillExportToExcel.createExcel(os, otherbillList, titles);
+		bizlistExportToExcel.createExcel(os, bizlist, titles);
 		byte[] filecontent = os.toByteArray();
 		ByteArrayInputStream is = new ByteArrayInputStream(filecontent);
 		excelStream = is;
 		Date date=new Date();
 		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time=format.format(date); 
-		fileName = "其他业务清单导出"+time+".xls";
+		fileName = str1+"公司业务清单"+time+".xls";
 		fileName=new String(fileName.getBytes(), "ISO8859-1");      
 		return "excel";
 	}
 
-	public IOtherbillService getOtherbillService() {
-		return otherbillService;
+	public IBizlistService getBizlistService() {
+		return bizlistService;
 	}
 
-	public void setOtherbillService(IOtherbillService otherbillService) {
-		this.otherbillService = otherbillService;
+	public void setBizlistService(IBizlistService bizlistService) {
+		this.bizlistService = bizlistService;
 	}
 
-	public OtherbillExportToExcel getOtherbillExportToExcel() {
-		return otherbillExportToExcel;
+	public BizlistExportToExcel getBizlistExportToExcel() {
+		return bizlistExportToExcel;
 	}
 
-	public void setOtherbillExportToExcel(
-			OtherbillExportToExcel otherbillExportToExcel) {
-		this.otherbillExportToExcel = otherbillExportToExcel;
+	public void setBizlistExportToExcel(BizlistExportToExcel bizlistExportToExcel) {
+		this.bizlistExportToExcel = bizlistExportToExcel;
 	}
 
 	public String getFileName() {
@@ -98,7 +100,6 @@ ServletRequestAware, SessionAware, ServletResponseAware{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 	@Override
 	public void setServletResponse(HttpServletResponse response) {
 		// TODO Auto-generated method stub

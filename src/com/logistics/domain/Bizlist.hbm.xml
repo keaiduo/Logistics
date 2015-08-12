@@ -50,5 +50,8 @@
         <property name="totalfee" type="java.lang.Double">
             <column name="totalfee" />
         </property>
+         <property name="remarks" type="string">
+            <column name="remarks" />
+        </property>
     </class>
 </hibernate-mapping>

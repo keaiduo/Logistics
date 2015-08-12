@@ -3,6 +3,9 @@ package com.logistics.action;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.logistics.domain.User;
@@ -36,7 +39,10 @@ public class DataExportAction extends ActionSupport {
 		byte[] fileContent = os.toByteArray();
 		ByteArrayInputStream is = new ByteArrayInputStream(fileContent);
 		excelStream = is; // 文件流
-		fileName = "用户信息导出.xls";
+		Date date=new Date();
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time=format.format(date); 
+		fileName = "用户信息导出"+time+".xls";
 		//这里需要注意需要进行转码，否则会导致中文文件名无法显示
 		fileName=new String(fileName.getBytes(), "ISO8859-1");           
 		return "excel";
