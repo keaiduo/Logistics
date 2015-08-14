@@ -37,7 +37,7 @@ public class Transport implements java.io.Serializable {
 		this.tid = tid;
 	}
 
-	public Transport(int tid, String tno, String tname, String taddr,
+	/*public Transport(int tid, String tno, String tname, String taddr,
 			String tlxt, String tlxdh, String tchdh, Double tprice,
 			Double tzxf, Double tshf, Double tthf, Double tcbf,
 			String tthch, String tthr, String tsjdh, String tthcb, String tgsdh) {
@@ -58,7 +58,7 @@ public class Transport implements java.io.Serializable {
 		this.tsjdh = tsjdh;
 		this.tthcb = tthcb;
 		this.tgsdh = tgsdh;
-	}
+	}*/
 
 	public int getTid() {
 		return this.tid;

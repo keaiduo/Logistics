@@ -1,4 +1,4 @@
-package com.logistics.vo;
+package com.logistics.util;
 
 import java.util.List;
 

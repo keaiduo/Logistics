@@ -1,4 +1,4 @@
-package com.logistics.vo;
+package com.logistics.domain;
 
 import java.util.Date;
 
@@ -243,6 +243,23 @@ public class Profit implements java.io.Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	@Override
+	public String toString() {
+		return "Profit [bid=" + bid + ", orderno=" + orderno + ", clientno="
+				+ clientno + ", companyname=" + companyname + ", startdate="
+				+ startdate + ", number=" + number + ", quantity=" + quantity
+				+ ", unit=" + unit + ", startlocation=" + startlocation
+				+ ", endcompany=" + endcompany + ", channel=" + channel
+				+ ", endlocation=" + endlocation + ", receiver=" + receiver
+				+ ", telephone=" + telephone + ", totalfee=" + totalfee
+				+ ", remarks=" + remarks + ", tid=" + tid + ", tno=" + tno
+				+ ", tname=" + tname + ", taddr=" + taddr + ", tlxt=" + tlxt
+				+ ", tlxdh=" + tlxdh + ", tchdh=" + tchdh + ", tprice="
+				+ tprice + ", tzxf=" + tzxf + ", tshf=" + tshf + ", tthf="
+				+ tthf + ", tcbf=" + tcbf + ", tthch=" + tthch + ", tthr="
+				+ tthr + ", tsjdh=" + tsjdh + ", tthcb=" + tthcb + ", tgsdh="
+				+ tgsdh + "]";
 	}
 	
 	

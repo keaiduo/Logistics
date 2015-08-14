@@ -5,7 +5,7 @@ import java.util.List;
 import com.logistics.dao.IBizlistDao;
 import com.logistics.domain.Bizlist;
 import com.logistics.service.IBizlistService;
-import com.logistics.vo.Profit;
+import com.logistics.vo.Profit1;
 
 public class BizlistServiceImpl implements IBizlistService {
 

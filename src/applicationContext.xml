@@ -226,13 +226,20 @@
 
 	<!-- 公司利润表导出 -->
 	<bean id="profitExportAction" class="com.logistics.action.ProfitExportAction">
-		<property name="ProfitService">
-			<ref bean="ProfitService" />
+		<property name="profitExportUtil">
+			<ref bean="profitExportUtil" />
 		</property>
 		<property name="profitExportToExcel">
 			<ref bean="profitExportToExcel" />
 		</property>
 	</bean>
+
+	<bean id="profitExportUtil" class="com.logistics.util.ProfitExportUtil">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
 	<!-- 公司业务清单导出 -->
 	<bean id="bizlistExportAction" class="com.logistics.action.BizlistExportAction">
 		<property name="bizlistService">
@@ -241,7 +248,7 @@
 		<property name="bizlistExportToExcel">
 			<ref bean="bizlistExportToExcel" />
 		</property>
-	
+
 	</bean>
 
 

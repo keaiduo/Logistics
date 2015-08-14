@@ -39,28 +39,7 @@ public class Bizlist implements java.io.Serializable {
 		this.orderno = orderno;
 	}
 
-	public Bizlist(int bid, String orderno, String clientno,
-			String companyname, Date startdate, Integer number,
-			Double quantity, String unit, String startlocation,
-			String endcompany, String channel, String endlocation,
-			String receiver, String telephone, Double totalfee) {
-		this.bid = bid;
-		this.orderno = orderno;
-		this.clientno = clientno;
-		this.companyname = companyname;
-		this.startdate = startdate;
-		this.number = number;
-		this.quantity = quantity;
-		this.unit = unit;
-		this.startlocation = startlocation;
-		this.endcompany = endcompany;
-		this.channel = channel;
-		this.endlocation = endlocation;
-		this.receiver = receiver;
-		this.telephone = telephone;
-		this.totalfee = totalfee;
-	}
-
+	
 	public int getBid() {
 		return this.bid;
 	}

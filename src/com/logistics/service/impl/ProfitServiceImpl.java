@@ -5,7 +5,7 @@ import java.util.List;
 import com.logistics.dao.IProfitDao;
 import com.logistics.domain.Bizlist;
 import com.logistics.service.IProfitService;
-import com.logistics.vo.Profit;
+import com.logistics.vo.Profit1;
 
 public class ProfitServiceImpl implements IProfitService {
 	private IProfitDao profitDao;
@@ -23,7 +23,7 @@ public class ProfitServiceImpl implements IProfitService {
 
 
 	@Override
-	public List<Profit> exportprofit(String str1, String str2, String str3) {
+	public List<Profit1> exportprofit(String str1, String str2, String str3) {
 		// TODO Auto-generated method stub
 		String hql = "select * from bizlist left join transport on bizlist.orderno=transport.tgsdh";
 		boolean judge = false;
@@ -53,8 +53,8 @@ public class ProfitServiceImpl implements IProfitService {
 			}
 		}
 
-		List<Profit> lists = this.profitDao.select(hql);
-		for (Profit list : lists) {
+		List<Profit1> lists = this.profitDao.select(hql);
+		for (Profit1 list : lists) {
 			System.out.println(list.toString());
 		}
 		return this.profitDao.select(hql);

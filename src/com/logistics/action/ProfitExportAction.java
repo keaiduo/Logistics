@@ -18,12 +18,9 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.util.ServletContextAware;
 
-
-
-
-import com.logistics.service.IProfitService;
+import com.logistics.domain.Profit;
 import com.logistics.util.ProfitExportToExcel;
-import com.logistics.vo.Profit;
+import com.logistics.util.ProfitExportUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProfitExportAction extends ActionSupport implements ServletContextAware,
@@ -33,8 +30,8 @@ ServletRequestAware, SessionAware, ServletResponseAware{
 	 * 日常数据表导出
 	 */
 	private static final long serialVersionUID = 1L;
-	private IProfitService profitService ;
 	private ProfitExportToExcel profitExportToExcel;
+	private ProfitExportUtil profitExportUtil;
 	private String fileName;
 	private InputStream excelStream;
 	
@@ -47,12 +44,13 @@ ServletRequestAware, SessionAware, ServletResponseAware{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("进入profitExportAction方法");
-		String str1 = request.getParameter("companyname");
-		String str2 = request.getParameter("startDate");
-		String str3 = request.getParameter("endDate");
-		System.out.println("str1"+str1+">>>str2"+str2+">>>str3"+str3);
-		List<Profit> profit = profitService.exportprofit(str1, str2, str3);
+		String companyName = request.getParameter("companyname");
+		String startDate = request.getParameter("startDate");
+		String endDate = request.getParameter("endDate");
+		
+	
+		System.out.println("str1"+companyName+">>>str2"+startDate+">>>str3"+endDate);
+		List<Profit> profit = profitExportUtil.getProfit(companyName, startDate, endDate);
 		//设置title
 		String[] titles = {"序号","客户单号","公司单号","发货日期","件数","数量","单位","始发地","收货单位","渠道","收货地址","运费总额","提货成本","专线费用","送货费","成本合计","毛利润","备注"};
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -63,22 +61,14 @@ ServletRequestAware, SessionAware, ServletResponseAware{
 		Date date=new Date();
 		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time=format.format(date); 
-		fileName = str1+"公司利润清单"+time+".xls";
+		fileName = companyName+"公司利润清单"+time+".xls";
 		fileName=new String(fileName.getBytes(), "ISO8859-1");      
 		return "excel";
 	}
 
 
 
-	public IProfitService getProfitService() {
-		return profitService;
-	}
 
-
-
-	public void setProfitService(IProfitService profitService) {
-		this.profitService = profitService;
-	}
 
 
 
@@ -151,6 +141,26 @@ ServletRequestAware, SessionAware, ServletResponseAware{
 
 	public HttpServletResponse getResponse() {
 		return response;
+	}
+
+
+
+
+
+
+
+	public ProfitExportUtil getProfitExportUtil() {
+		return profitExportUtil;
+	}
+
+
+
+
+
+
+
+	public void setProfitExportUtil(ProfitExportUtil profitExportUtil) {
+		this.profitExportUtil = profitExportUtil;
 	}
 	
 	
