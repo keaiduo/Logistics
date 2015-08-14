@@ -5,6 +5,7 @@ import java.util.List;
 import com.logistics.dao.IBizlistDao;
 import com.logistics.domain.Bizlist;
 import com.logistics.service.IBizlistService;
+import com.logistics.vo.Profit;
 
 public class BizlistServiceImpl implements IBizlistService {
 
@@ -133,5 +134,7 @@ public class BizlistServiceImpl implements IBizlistService {
 		}
 		return this.bizlistDao.select(hql);
 	}
+
+	
 
 }

@@ -16,4 +16,5 @@ public interface IBizlistService {
 	public abstract boolean update(final Bizlist biz);
 	public abstract List<Bizlist> exportby(String str1,String str2,String str3);
 
+
 }

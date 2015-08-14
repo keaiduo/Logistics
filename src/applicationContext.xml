@@ -76,6 +76,11 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="profitDao" class="com.logistics.dao.impl.ProfitDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 	<!--这只Service层 -->
 	<bean id="userService" class="com.logistics.service.impl.UserServiceImpl">
@@ -111,6 +116,11 @@
 	<bean id="trackService" class="com.logistics.service.impl.TrackServiceImpl">
 		<property name="trackDao">
 			<ref bean="trackDao" />
+		</property>
+	</bean>
+	<bean id="ProfitService" class="com.logistics.service.impl.ProfitServiceImpl">
+		<property name="profitDao">
+			<ref bean="profitDao" />
 		</property>
 	</bean>
 
@@ -195,9 +205,52 @@
 		</property>
 
 	</bean>
+	<!-- 日常现金账导出 -->
+	<bean id="dailybillExportAction" class="com.logistics.action.DailybillExportAction">
+		<property name="dailybillService">
+			<ref bean="dailybillService" />
+		</property>
+		<property name="dailybillExportToExcel">
+			<ref bean="dailybillExportToExcel" />
+		</property>
+	</bean>
+	<!-- 公司其他业务清单导出 -->
+	<bean id="otherbillExportAction" class="com.logistics.action.OtherbillExportAction">
+		<property name="otherbillService">
+			<ref bean="otherbillService" />
+		</property>
+		<property name="otherbillExportToExcel">
+			<ref bean="otherbillExportToExcel" />
+		</property>
+	</bean>
+
+	<!-- 公司利润表导出 -->
+	<bean id="profitExportAction" class="com.logistics.action.ProfitExportAction">
+		<property name="ProfitService">
+			<ref bean="ProfitService" />
+		</property>
+		<property name="profitExportToExcel">
+			<ref bean="profitExportToExcel" />
+		</property>
+	</bean>
+	<!-- 公司业务清单导出 -->
+	<bean id="bizlistExportAction" class="com.logistics.action.BizlistExportAction">
+		<property name="bizlistService">
+			<ref bean="bizlistService" />
+		</property>
+		<property name="bizlistExportToExcel">
+			<ref bean="bizlistExportToExcel" />
+		</property>
+	
+	</bean>
+
 
 	<!--工具类 -->
-	<bean id="exportUtil" class="com.logistics.util.ExportToExcel">
+	<bean id="exportUtil" class="com.logistics.util.ExportToExcel"></bean>
+	<bean id="dailybillExportToExcel" class="com.logistics.util.DailybillExportToExcel"></bean>
+	<bean id="otherbillExportToExcel" class="com.logistics.util.OtherbillExportToExcel"></bean>
+	<bean id="bizlistExportToExcel" class="com.logistics.util.BizlistExportToExcel"></bean>
+	<bean id="profitExportToExcel" class="com.logistics.util.ProfitExportToExcel">
 	</bean>
 
 
@@ -209,4 +262,5 @@
 	<bean id="dailybill" class="com.logistics.domain.Dailybill" />
 	<bean id="user" class="com.logistics.domain.User" />
 	<bean id="bizlist" class="com.logistics.domain.Bizlist" />
+	<bean id="profit" class="com.logistics.domain.Profit" />
 </beans>
